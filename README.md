@@ -52,3 +52,35 @@ La entidad lo que permite es definir en una clase los atributos
 que correspondan con los campos de la base de datos.
 
 Creamos un paquete models.entity y una clase Articulo.java
+
+## Crear el Repository
+
+El siguiente paso es crear el repository tambien conocido como DAO
+o Dao.
+
+DAO = Objeto de acceso a datos.
+
+Utilizar un conjunto de funciones que están en la libreia repository
+para aplicar a nuestra clase Articulo, lo que proporcionan esas 
+funciones es realizar las operaciones CRUD en la base de datos.
+
+Un paquete dao en el paquete models, y dentro de ese paquete una
+interfaz para el DAO de la clase correspondiente.
+
+## Crear el servicio
+
+En el servicio (que va a tener una interfaz y una clase) crearemos
+los metodos para trabajar con los diferentes atributos de la
+entidad.
+
+Nos creamos un paquete services en el paquete models y vamos
+añadir una interfaz y una clase.
+
+## Crear el controlador
+
+El controlador va a tener la lógica relacionada con las peticiones
+a la API para usar los métodos de operaciones con la 
+base de datos
+
+Crear un nuevo paquete controllers en el paquete origen apirest y 
+dentro del paquete una clase con el controlador para la entidad articulo
