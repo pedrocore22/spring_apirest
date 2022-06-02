@@ -45,3 +45,10 @@ Este paso se realiza introduciendo los datos
 en el archivo de properties
 
 resources/application.properties
+
+## Crear la entidad
+
+La entidad lo que permite es definir en una clase los atributos
+que correspondan con los campos de la base de datos.
+
+Creamos un paquete models.entity y una clase Articulo.java
