@@ -11,8 +11,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
 
@@ -36,8 +34,7 @@ public class Articulo implements Serializable {
     @Column(nullable = false)
     private Genero genero;
     @Column(name = "fecha_alta")
-    @Temporal(TemporalType.DATE)
-    private Date fechaAlta;
+    private Date fechaAlta = new Date();
 
     public UUID getId() {
         return id;

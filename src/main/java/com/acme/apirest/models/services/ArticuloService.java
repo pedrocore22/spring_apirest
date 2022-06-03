@@ -1,5 +1,7 @@
 package com.acme.apirest.models.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +14,12 @@ public class ArticuloService implements IArticuloService {
 
     @Autowired
     private IArticuloDAO articuloDAO;
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Articulo> findAll() {
+        return (List<Articulo>) articuloDAO.findAll();
+    }
 
     @Override
     @Transactional()

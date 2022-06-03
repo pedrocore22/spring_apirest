@@ -1,5 +1,7 @@
 package com.acme.apirest.models.services;
 
+import java.util.List;
+
 import com.acme.apirest.models.entity.Articulo;
 
 // En esta interfaz vamos a definir
@@ -8,8 +10,9 @@ import com.acme.apirest.models.entity.Articulo;
 
 public interface IArticuloService {
     
+    // Método para retornar todos los articulos
+    public List<Articulo> findAll();
     // Método para crear nuevos articulos
-
     public Articulo save(Articulo articulo);
 
     // Resto de métodos
