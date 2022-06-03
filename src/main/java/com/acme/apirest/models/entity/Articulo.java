@@ -35,7 +35,7 @@ public class Articulo implements Serializable {
     @Enumerated(value = EnumType.STRING)
     @Column(nullable = false)
     private Genero genero;
-    @Column(name = "fecha_alta", nullable = false)
+    @Column(name = "fecha_alta")
     @Temporal(TemporalType.DATE)
     private Date fechaAlta;
 
