@@ -22,6 +22,13 @@ public class ArticuloService implements IArticuloService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<Articulo> searchArticulosByModelo(String term) {
+        return (List<Articulo>) articuloDAO.searchArticulosByModelo(term);
+    }
+
+
+    @Override
     @Transactional()
     public Articulo save(Articulo articulo) {
         return articuloDAO.save(articulo);

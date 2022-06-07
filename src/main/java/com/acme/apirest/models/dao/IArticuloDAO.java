@@ -1,7 +1,9 @@
 package com.acme.apirest.models.dao;
 
+import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.acme.apirest.models.entity.Articulo;
@@ -11,4 +13,6 @@ import com.acme.apirest.models.entity.Articulo;
 // dato de su clave primaria
 public interface IArticuloDAO extends CrudRepository<Articulo, UUID> {
     // Definiremos métodos propios más adelante
+    @Query(value = "SELECT * FROM articulos WHERE modelo LIKE :term%", nativeQuery = true)
+    public List<Articulo> searchArticulosByModelo(String term);
 }

@@ -12,6 +12,8 @@ public interface IArticuloService {
     
     // Método para retornar todos los articulos
     public List<Articulo> findAll();
+    // Método para retornar los artículos por su campo modelo
+    public List<Articulo> searchArticulosByModelo(String term);
     // Método para crear nuevos articulos
     public Articulo save(Articulo articulo);
 
