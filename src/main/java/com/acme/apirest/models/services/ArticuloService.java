@@ -1,6 +1,7 @@
 package com.acme.apirest.models.services;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,11 @@ public class ArticuloService implements IArticuloService {
         return (List<Articulo>) articuloDAO.searchArticulosByModelo(term);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public Articulo findById(UUID id) {
+        return articuloDAO.findById(id).orElse(null);
+    }
 
     @Override
     @Transactional()
