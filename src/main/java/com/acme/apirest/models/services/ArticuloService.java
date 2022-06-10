@@ -39,5 +39,11 @@ public class ArticuloService implements IArticuloService {
     public Articulo save(Articulo articulo) {
         return articuloDAO.save(articulo);
     }
+
+    @Override
+    @Transactional()
+    public void delete(UUID id) {
+        articuloDAO.deleteById(id);
+    }
     
 }

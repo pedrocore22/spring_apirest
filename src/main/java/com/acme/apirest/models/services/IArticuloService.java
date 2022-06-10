@@ -19,6 +19,7 @@ public interface IArticuloService {
     public Articulo findById(UUID id);
     // Método para crear nuevos articulos o actualizarlos
     public Articulo save(Articulo articulo);
-    // Resto de métodos
+    // Método para eliminar un artículo
+    public void delete(UUID id);
 
 }
