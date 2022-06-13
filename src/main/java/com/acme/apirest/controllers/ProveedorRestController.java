@@ -19,9 +19,9 @@ public class ProveedorRestController {
     @Autowired
     private IProveedorService proveedorService;
 
-    // @GetMapping("/proveedores")
-    // public List<Proveedor> index() {
-    //     return proveedorService.findAll();
-    // }
+    @GetMapping("/proveedores")
+    public List<Proveedor> index() {
+        return proveedorService.findAll();
+    }
 
 }
