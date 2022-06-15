@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,7 +37,7 @@ public class ProveedorRestController {
 
     @GetMapping("/proveedores/page/{pageNumber}")
     public Page<Proveedor> index(@PathVariable int pageNumber) {
-        return proveedorService.findAll(PageRequest.of(pageNumber, 5));
+        return proveedorService.findAll(PageRequest.of(pageNumber, 5, Sort.by("localidad","nombre")));
     }
 
     @PostMapping("/proveedores")
