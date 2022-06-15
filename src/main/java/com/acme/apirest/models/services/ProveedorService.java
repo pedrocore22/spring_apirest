@@ -3,6 +3,8 @@ package com.acme.apirest.models.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,4 +26,17 @@ public class ProveedorService implements IProveedorService {
     public List<Proveedor> findAll() {
         return (List<Proveedor>) proveedorDAO.findAll();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Proveedor> findAll(Pageable pageable) {
+        return proveedorDAO.findAll(pageable);
+    }
+
+    @Override
+    @Transactional()
+    public Proveedor save(Proveedor proveedor) {
+        return proveedorDAO.save(proveedor);
+    }
+
 }
