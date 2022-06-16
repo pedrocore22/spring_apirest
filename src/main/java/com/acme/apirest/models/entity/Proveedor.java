@@ -1,16 +1,23 @@
 package com.acme.apirest.models.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="proveedores")
@@ -33,6 +40,22 @@ public class Proveedor implements Serializable {
                                 // para cambiar en base de datos
     private Date fechaAlta = new Date();
 
+    // Creamos una propiedad para las ofertas asociadas a este proveedor
+    @JsonIgnoreProperties(value = { "proveedor",
+                                    "hibernateLazyInitializer",
+                                    "handler" }, 
+                                    allowSetters = true)
+    @OneToMany(fetch = FetchType.LAZY, 
+               mappedBy = "proveedor"
+               , cascade = CascadeType.ALL)
+    private List<Oferta> ofertas;
+
+    public Proveedor() {
+        this.ofertas = new ArrayList<>();
+    }
+
+
+    
     public UUID getId() {
         return this.id;
     }
