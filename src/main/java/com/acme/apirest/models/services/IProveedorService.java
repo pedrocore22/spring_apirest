@@ -15,4 +15,6 @@ public interface IProveedorService {
     public Page<Proveedor> findAll(Pageable pageable);
     // Método save para crear o actualizar un proveedor
     public Proveedor save(Proveedor proveedor);
+    // Método para buscar proveedor por nombre
+    public List<Proveedor> findByNombreStartsWith(String term);
 }

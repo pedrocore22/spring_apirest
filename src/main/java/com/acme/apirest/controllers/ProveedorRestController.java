@@ -40,6 +40,12 @@ public class ProveedorRestController {
         return proveedorService.findAll(PageRequest.of(pageNumber, 5, Sort.by("localidad","nombre")));
     }
 
+    @GetMapping("/proveedores/search/{term}")
+    public List<Proveedor> search(@PathVariable String term) {
+        return proveedorService.findByNombreStartsWith(term);
+    }
+
+
     @PostMapping("/proveedores")
     public ResponseEntity<?> create(@RequestBody Proveedor proveedor) {
         Proveedor newProveedor = null;

@@ -34,6 +34,12 @@ public class ProveedorService implements IProveedorService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<Proveedor> findByNombreStartsWith(String term) {
+        return proveedorDAO.findByNombreStartsWith(term);
+    }
+
+    @Override
     @Transactional()
     public Proveedor save(Proveedor proveedor) {
         return proveedorDAO.save(proveedor);
