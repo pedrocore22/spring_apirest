@@ -12,4 +12,8 @@ public interface IOfertaDAO extends CrudRepository<Oferta, UUID> {
     // Métodos específicos
     @Query(value="SELECT * FROM ofertas WHERE articulo_id = ?1", nativeQuery = true)
     public List<Oferta> searchOfertaByArticulo(String articuloId);
+    @Query(value="SELECT * FROM ofertas WHERE proveedor_id = ?1", nativeQuery = true)
+    public List<Oferta> searchOfertaByProveedor(String proveedorId);
+    @Query(value="SELECT * FROM ofertas WHERE articulo_id = ?1 AND proveedor_id = ?2", nativeQuery = true)
+    public List<Oferta> searchOfertaByArticuloAndProveedor(String articuloId, String proveedorId);
 }

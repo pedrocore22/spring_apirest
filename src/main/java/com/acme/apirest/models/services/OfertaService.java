@@ -22,6 +22,18 @@ public class OfertaService implements IOfertaService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<Oferta> findByProveedorId(String proveedorId) {
+        return ofertaDAO.searchOfertaByProveedor(proveedorId);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Oferta> findByArticuloIdAndProveedorId(String articuloId, String proveedorId) {
+        return ofertaDAO.searchOfertaByArticuloAndProveedor(articuloId, proveedorId);
+    }
+
+    @Override
     @Transactional()
     public Oferta save(Oferta oferta) {
         return ofertaDAO.save(oferta);

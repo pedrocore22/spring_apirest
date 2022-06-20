@@ -29,6 +29,16 @@ public class OfertaRestController {
         return ofertaService.findByArticuloId(articuloId);
     }
 
+    @GetMapping("/ofertas/proveedor/{proveedorId}")
+    public List<Oferta> showByProveedor(@PathVariable String proveedorId) {
+        return ofertaService.findByProveedorId(proveedorId);
+    }
+
+    @GetMapping("/ofertas/articulo-proveedor/{articuloId}/{proveedorId}")
+    public List<Oferta> showByArticuloAndProveedor(@PathVariable String articuloId, @PathVariable String proveedorId) {
+        return ofertaService.findByArticuloIdAndProveedorId(articuloId, proveedorId);
+    }
+
     @PostMapping("/ofertas")
     @ResponseStatus(HttpStatus.CREATED)
     public Oferta create(@RequestBody Oferta oferta) {
